@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style/mediaquery.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="https://kit.fontawesome.com/50f49a27bf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="weather-container">
+        <div class="search-container">
+            <i class="fa-solid fa-location-dot location" style="color: #fff;"></i>
+            <input class="search" type="text" placeholder="Search Your City">
+            <i class="fa-solid fa-magnifying-glass search-icon" style="color: #fff;"></i>
+        </div>
+        <div class="weather-details-container">
+            <img class="weather-condition-icon" src="./images/rain.png" alt="weather-condition-img">
+            <div class="txt-container">
+                <h1 class="temp">11<span>°C</span></h1>
+                <p class="weather">Light Rain</p>
+            </div>
+        </div>
+        <div class="weather-condition-container">
+            <div class="humidity-container">
+                <img src="./images/humidity.png" alt="humidity">
+                <div class="humidity-details">
+                    <p class="humidity-level">55%</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="Wind-container">
+                <i class="fa-solid fa-wind" style="color: #ffffff;"></i>
+                <div class="humidity-details">
+                    <p class="humidity-level">6Km/h</p>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
