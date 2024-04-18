@@ -10,34 +10,40 @@
 </head>
 
 <body>
-
+<div class="preloader"></div>
     <div class="weather-container">
         <div class="search-container">
             <i class="fa-solid fa-location-dot location" style="color: #fff;"></i>
-            <input class="search" type="text" spellcheck="false"  placeholder="Search Your City...">
-            <i class="fa-solid fa-magnifying-glass search-icon" style="color: #fff;"></i>
+            <input class="search" type="text" spellcheck="false" placeholder="Search Your City...">
+            <i class="fa-solid fa-magnifying-glass search-icon move" style="color: #fff;"></i>
         </div>
-        <div class="weather-details-container">
-            <img class="weather-condition-icon" src="./images/clear.png" alt="weather-condition-img">
-            <div class="txt-container">
-                <h1 class="temp">11<span>°C</span></h1>
-                <p class="weather">Lightning Rain</p>
-                <p class="City">Dumka</p>
-            </div>
+        <h2 class="warn"></h2>
+        <div class="container-404">
+            <img src="./images/404.png" alt="">
         </div>
-        <div class="weather-condition-container">
-            <div class="humidity-container">
-                <img src="./images/humidity.png" alt="humidity">
-                <div class="humidity-details">
-                    <p class="humidity-level">55%</p>
-                    <p>Humidity</p>
+        <div class="w-d-c">
+            <div class="weather-details-container">
+                <img class="weather-condition-icon" src="./images/rain.png" alt="weather-condition-img">
+                <div class="txt-container">
+                    <h1 class="temp">11<span>°C</span></h1>
+                    <p class="weather">Lightning Rain</p>
+                    <p class="City">Dumka</p>
                 </div>
             </div>
-            <div class="Wind-container">
-                <i class="fa-solid fa-wind" style="color: #ffffff;"></i>
-                <div class="humidity-details">
-                    <p class="Wind-speed">6Km/h</p>
-                    <p>Wind Speed</p>
+            <div class="weather-condition-container">
+                <div class="humidity-container">
+                    <img src="./images/humidity.png" alt="humidity">
+                    <div class="humidity-details">
+                        <p class="humidity-level">55%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="Wind-container">
+                    <i class="fa-solid fa-wind" style="color: #ffffff;"></i>
+                    <div class="humidity-details">
+                        <p class="Wind-speed">6Km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
                 </div>
             </div>
         </div>

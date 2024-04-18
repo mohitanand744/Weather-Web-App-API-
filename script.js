@@ -6,6 +6,11 @@ let weatherCondition = document.querySelector(".weather");
 let humidityLevel = document.querySelector(".humidity-level");
 let windSpeed = document.querySelector(".Wind-speed");
 let city = document.querySelector(".City")
+let preloader = document.querySelector(".preloader");
+
+window.addEventListener("load", () => {
+    preloader.style.display = "none";
+});
 
 cityName = "Dumka";
 
@@ -15,12 +20,25 @@ let getWeatherData = async (cityName) => {
     let fetchData = await fetch(apiLink);
     let mainData = await fetchData.json();
     console.log(mainData);
-    let { main, name, weather, wind, sys } = mainData;
+    let { main, name, weather, wind, cod } = mainData;
+
+
+    if (cod == '404') {
+        document.querySelector(".warn").innerHTML = "Please Enter a valid city name ";
+        document.querySelector(".container-404").style.display = "block";
+        document.querySelector(".container-404 img").style.transform = "translateY(0)";
+        document.querySelector(".w-d-c").style.display = "none"
+    } else {
+        document.querySelector(".container-404").style.display = "none";
+
+    }
+
     weatherTemp.innerHTML = `${Math.round(main.temp)}<span>°c</span>`;
     humidityLevel.innerHTML = `${main.humidity}%`;
     windSpeed.innerHTML = `${wind.speed}Km/h`;
     weatherCondition.innerHTML = `${weather[0].description}`;
     city.innerHTML = name;
+
 
     switch (weather[0].main) {
         case "Clear":
@@ -29,9 +47,11 @@ let getWeatherData = async (cityName) => {
             break;
         case "Rain":
             weatherConditionIcon.src = "./images/rain.png";
+            document.body.style.backgroundImage = "url('./images/rain.jpg')"
             break;
         case "Snow":
             weatherConditionIcon.src = "./images/snow.png";
+            document.body.style.backgroundImage = "url('./images/snowbg.jpg')"
             break;
         case "Clouds":
             weatherConditionIcon.src = "./images/cloud.png";
@@ -43,14 +63,23 @@ let getWeatherData = async (cityName) => {
         default:
             weatherConditionIcon.src = "./images/clear.png";
     }
-
 }
 
 
+search.addEventListener("click", () => {
+    searchIcon.classList.add("move");
+})
+
 
 searchIcon.addEventListener("click", () => {
-    getWeatherData(search.value);
+    if (search.value === "") {
+        document.querySelector(".warn").innerHTML = "Please Inter Any City Name...";
+    } else {
+        getWeatherData(search.value.trim());
+        document.querySelector(".w-d-c").style.display = "block"
+        document.querySelector(".warn").innerHTML = "";
+    }
+    searchIcon.classList.remove("move");
 
 })
 
-getWeatherData(cityName);
