@@ -5,6 +5,8 @@ let weatherTemp = document.querySelector(".temp");
 let weatherCondition = document.querySelector(".weather");
 let humidityLevel = document.querySelector(".humidity-level");
 let windSpeed = document.querySelector(".Wind-speed");
+let minTemp = document.querySelector(".min-temp")
+let maxTemp = document.querySelector(".max-temp")
 let city = document.querySelector(".City")
 let preloader = document.querySelector(".preloader");
 
@@ -38,6 +40,8 @@ let getWeatherData = async (cityName) => {
     windSpeed.innerHTML = `${wind.speed}Km/h`;
     weatherCondition.innerHTML = `${weather[0].description}`;
     city.innerHTML = name;
+    minTemp.innerHTML = `Min Temp : ${main.temp_min}°c`;
+    maxTemp.innerHTML = `Max Temp : ${main.temp_max}°c`;
 
 
     switch (weather[0].main) {
@@ -55,9 +59,11 @@ let getWeatherData = async (cityName) => {
             break;
         case "Clouds":
             weatherConditionIcon.src = "./images/cloud.png";
+            document.body.style.backgroundImage = "url('./images/Clouds.jpg')"
             break;
         case "Mist":
             weatherConditionIcon.src = "./images/mist.png";
+            document.body.style.backgroundImage = "url('./images/mist.jpg')"
             break;
 
         default:
@@ -74,6 +80,7 @@ search.addEventListener("click", () => {
 searchIcon.addEventListener("click", () => {
     if (search.value === "") {
         document.querySelector(".warn").innerHTML = "Please Inter Any City Name...";
+        document.querySelector(".w-d-c").style.display = "none"
     } else {
         getWeatherData(search.value.trim());
         document.querySelector(".w-d-c").style.display = "block"
